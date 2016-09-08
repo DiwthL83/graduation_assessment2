@@ -1,0 +1,11 @@
+<h1>Contact#edit</h1>
+<p>Find me in app/views/contact/edit.html.erb</p>
+
+
+<%= form_tag action: 'edit', id: @contact.id do -%>
+	Name: <%= text_field "contact", "cont_name" %><br />
+	Phone: <%= text_field "contact", "cont_phone" %><br />
+	Email: <%= text_field "contact", "cont_email" %><br />
+	Tag: <%= text_field "contact", "cont_tag" %><br />
+	<%= submit_tag %>
+<%= end -%>

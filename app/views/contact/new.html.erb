@@ -1,0 +1,31 @@
+<h1>Contact#new</h1>
+<p>Find me in app/views/contact/new.html.erb</p>
+
+
+<div id ="">
+<p>Add a Contact:</p>
+<p>
+<%= form_for(@contact) do |c| %>
+	<% if @contact.errors.any? %>
+		<div id="">
+			<h2><%= pluralize(@contact.errors.count, "error") %>
+				prohibited this contact from being saved:
+			</h2>
+			<ol>
+				<% @contact.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ol>
+		</div>
+
+</p>
+</div>
+
+
+<%= form_tag action: 'create' do -%>
+	Name: <%= text_field "contact", "cont_name" %><br />
+	Phone: <%= text_field "contact", "cont_phone" %><br />
+	Email: <%= text_field "contact", "cont_email" %><br />
+	Tag: <%= text_field "contact", "cont_tag" %><br />
+	<%= submit_tag %>
+<%= end -%>
