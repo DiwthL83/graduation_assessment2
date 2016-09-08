@@ -1,0 +1,16 @@
+This application is for users to log their interactions with loved ones. The user will enter their list of contacts and then add a note each time they catch up with that contact. With this information recorded, they can see at a glance which of their loved ones it's been longest since they've spoken to.
+
+# Part 1
+
+- [ ] The user should be able to create a new contact, entering pertinent information like the contact's name, phone, and email.
+- [ ] Each contact should belong to a category, so it's easy to separate out information for "friends" vs. "family" (for example).
+- [ ] On the page to view an individual contact, the user should see a list of each time that they spoke with that person.
+- [ ] From the page to view an individual contact, the user should be able to add a new note to indicate that they've just spoken with that person.
+- [ ] The homepage of the application should list each contact's name, linked to the page for that contact.
+- [ ] The homepage of the application should list how long it's been since the user spoke to each contact. E.g. _"Mom - 4 days ago"_.
+
+# Part 2
+
+- [ ] If you access /api/contacts, the response should be the following information about each contact as JSON:
+  - Name
+  - Last date/time the user spoke to them
