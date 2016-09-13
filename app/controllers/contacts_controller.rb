@@ -1,8 +1,8 @@
-class ContactController < ApplicationController
+class ContactsController < ApplicationController
 
   def index
     @contact = Contact.new
-    @contacts = Contact.all
+    @contacts = Contact.all.order(created_at: :desc)
   end
 
   def new
@@ -15,22 +15,21 @@ class ContactController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.save
 
-    if @contact.save
-      redirect_to @contact
-    else
-      render 'new'
-    end
-  	# redirect_to action: 'edit', id: @contact.id
+    redirect_to action: "index"
   end
 
   def edit
   	@contact = Contact.find(params[:id])
 
   	if request.post?
-  		@contact.update_attributes(params[:contact])
+  		@contact.update_attributes(contact_params)
   		redirect_to action: 'edit', id: @contact.id
   	end
+  end
+
+  def update
   end
 
   def delete
@@ -38,7 +37,7 @@ class ContactController < ApplicationController
 
 private
   def contact_params
-    params.require(:contact).permit(:cont_name, :cont_phone, :cont_email, :cont_tag)
+    params.require(:contact).permit(:cont_fname, :cont_lname, :cont_phone, :cont_email, :cont_tag)
   end
 
 end

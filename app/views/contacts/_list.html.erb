@@ -1,0 +1,20 @@
+<!-- Used to render list of all Contacts -->
+<h3>Contacts List</h3>
+
+<table>
+	<thead>
+		<th>Full Name</th>
+		<th>Phone Number</th>
+		<th>Email Address</th>
+		<th>Tag</th>
+	</thead>
+
+	<% @contacts.each do |x| %>
+		<tr>
+			<td><%= x.cont_fname %> <%= x.cont_lname %></td>
+			<td><%= x.cont_phone %></td>
+			<td><%= x.cont_email %></td>
+			<td><%= x.cont_tag %></td>
+		</tr>
+	<% end %>
+</table>

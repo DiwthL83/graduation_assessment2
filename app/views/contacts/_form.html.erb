@@ -2,7 +2,7 @@
 
 <div id ="error_explanation">
 	<h3>Add a Contact:</h3>
-	<%= form_for :contact, method: :post,  url: contact_new_path do |c| %>
+	<%= form_for :contact, url: contacts_path do |c| %>
 		<% if @contact.errors.any? %>
 			<ul>
 				<%= pluralize(@contact.errors.count, "error") %> prevented the contact from being saved: 
@@ -12,12 +12,17 @@
 			</ul>
 		<% end %>
 
-		<%= c.label :cont_fname, 'First Name' %>:
+		<p>
+		Name Info<br>
+		<%= c.label :cont_fname, 'First' %>:
 		<%= c.text_field :cont_fname %><br>
 
-		<%= c.label :cont_lname, 'Last Name' %>:
+		<%= c.label :cont_lname, 'Last' %>:
 		<%= c.text_field :cont_lname %><br>
+		</p>
 
+		<p>
+		Contact Info<br>
 		<%= c.label :cont_phone, 'Phone' %>:
 		<%= c.telephone_field :cont_phone %><br>
 
