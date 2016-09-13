@@ -1,0 +1,16 @@
+<!-- Used to render Contacts form -->
+
+<div id ="error_explanation">
+<p>
+	Add a Contact:
+</p>
+	
+<!-- Manually set the action of the form using form_for -->
+<%= form_for :contact, url: contact_new_path do |c| %>
+	Name: <%= c.text_field :cont_name %><br />
+	Phone: <%= c.text_field :cont_phone %><br />
+	Email: <%= c.text_field :cont_email %><br />
+	Tag: <%= c.text_field :cont_tag %><br />
+	<%= submit_tag "Save Contact" %>
+<% end %>
+</div>
