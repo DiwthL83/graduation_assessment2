@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
   def index
     @contact = Contact.new
-    @contacts = Contact.all.order(created_at: :desc)
+    @contacts = Contact.all.order(cont_lname: :asc)
   end
 
   def new
@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @log_entries = Contact_log.find(params[:contact_id])
   end
 
   def create

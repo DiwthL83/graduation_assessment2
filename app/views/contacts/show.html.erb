@@ -16,10 +16,12 @@
 <h4 class="">Contact History</h4>
 
 <table>
-	<% @cont_hist.each do |x| %>
+	<% @log_entries.each do |x| %>
 		<tr>
 			<td><%= x.created_at %></td>
 			<td><%= x.notes %></td>
 		</tr>
 	<% end %>
 </table>
+
+<%= render partial "contact_logs/form" %>
