@@ -2,12 +2,13 @@
 <h3>Contacts List</h3>
 
 <table>
-	<thead>
+	<tr>
 		<th>Full Name</th>
 		<th>Phone Number</th>
 		<th>Email Address</th>
 		<th>Tag</th>
-	</thead>
+		<th colspan="4"></th>
+	</tr>
 
 	<% @contacts.each do |x| %>
 		<tr>
@@ -15,6 +16,8 @@
 			<td><%= x.cont_phone %></td>
 			<td><%= x.cont_email %></td>
 			<td><%= x.cont_tag %></td>
+			<td><%= link_to 'Show', contact_path(x) %></td>
+			<td><%= link_to 'Edit', edit_contact_path(x) %></td>
 		</tr>
 	<% end %>
 </table>

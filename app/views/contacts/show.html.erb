@@ -1,21 +1,25 @@
+<h3>
+	<%= @contact.cont_fname %> <%= @contact.cont_lname %> | Last Contact:
+</h3>
 
+<p>
+	First: <%= @contact.cont_fname %><br>
+	Last: <%= @contact.cont_lname %>
+</p>
 
-<%= #First Name%>
+<p>
+	Phone: <%= @contact.cont_phone %><br>
+	Email: <%= @contact.cont_email %><br>
+	Tag: <%= @contact.cont_tag %>
+</p>
 
-<%= #Last Name%>
-<%= #Phone%>
-<%= #Email%>
-<%= #Tag%>
-
-<h3 class="">Contact History</h3>
+<h4 class="">Contact History</h4>
 
 <table>
-	<% @contact_log.each do |x| %>
+	<% @cont_hist.each do |x| %>
 		<tr>
-			<td><%= #Date%></td>
-			<td><%= #Time%></td>
-			<td><%= #Who%></td>
-			<td><%= #Notes%></td>
+			<td><%= x.created_at %></td>
+			<td><%= x.notes %></td>
 		</tr>
 	<% end %>
 </table>
