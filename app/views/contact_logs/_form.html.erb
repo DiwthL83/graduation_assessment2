@@ -1,7 +1,6 @@
 <!-- Used to render Contact Log Entries form -->
 
 <div id ="error_explanation">
-	<h3>Add a Log Entry:</h3>
 	<%= form_for :contact_log, url: contacts_path do |c| %>
 		<% if @log_entry.errors.any? %>
 			<ul>
@@ -13,10 +12,9 @@
 		<% end %>
 
 		<p>
-			Enter Notes Below<br>
-			<%= c.label :notes, 'Notes' %>:
+			<%= c.label :notes, 'New Log Entry' %>:<br>
 			<%= c.text_area :notes %><br>
-			<%= submit_tag "Save" %>
+			<%= submit_tag "Save Entry" %>
 		</p>
 	<% end %>
 </div>

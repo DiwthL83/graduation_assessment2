@@ -3,32 +3,32 @@ class ContactLogsController < ApplicationController
   end
 
   def show
-    @log_entries = Contact_log.all
+    @log_entries = ContactLog.all
   end
 
   def new
-    @log_entry = Contact_log.new
+    @log_entry = ContactLog.new
   end
 
   def edit
-    @log_entry = Contact_log.find(params[:id])
+    @log_entry = ContactLog.find(params[:id])
   end
 
   def create
-    @log_entry = Contact.Contact_log.create
+    @log_entry = ContactLog.new
+    @log_entry.save(contact_log_params)
   end
 
   def update
-
   end
 
   def destroy
-
   end
 
 private
+
   def contact_log_params
-    
+    require(:contact_log).permit(:notes)
   end
 
 end

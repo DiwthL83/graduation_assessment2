@@ -11,7 +11,8 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    @log_entries = Contact_log.find(params[:contact_id])
+    @log_entry = ContactLog.new
+    @log_entries = ContactLog.where(params[:contact_id])
   end
 
   def create

@@ -20,8 +20,10 @@
 		<tr>
 			<td><%= x.created_at %></td>
 			<td><%= x.notes %></td>
+			<td><%= link_to 'Edit', edit_contact_log_path(x) %></td>
+			<td><%= link_to 'Delete', delete_contact_log_path(x) %></td>
 		</tr>
 	<% end %>
 </table>
 
-<%= render partial "contact_logs/form" %>
+<%= render 'contact_logs/form' %>
