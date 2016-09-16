@@ -1,7 +1,7 @@
 <!-- Used to render Contact Log Entries form -->
 
 <div id ="error_explanation">
-	<%= form_for :contact_log, url: contacts_path do |c| %>
+	<%= form_for :contact_log, controller: "contacts", action: "logCreate" do |c| %>
 		<% if @log_entry.errors.any? %>
 			<ul>
 				<%= pluralize(@log_entry.errors.count, "error") %> prevented the entry from being saved: 
@@ -12,7 +12,7 @@
 		<% end %>
 
 		<p>
-			<%= c.label :notes, 'New Log Entry' %>:<br>
+			<%= c.label :notes, 'Add a Note:' %>:<br>
 			<%= c.text_area :notes %><br>
 			<%= submit_tag "Save Entry" %>
 		</p>

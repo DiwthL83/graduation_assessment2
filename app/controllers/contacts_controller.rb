@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  protect_from_forgery
 
   def index
     @contact = Contact.new
@@ -11,30 +12,37 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    @log_entry = ContactLog.new
-    @log_entries = ContactLog.where(params[:contact_id])
   end
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
 
-    redirect_to action: "index"
+    if @contact.save?
+      redirect_to @contact
+    else
+      render 'new'
+    end
   end
 
   def edit
-  	@contact = Contact.find(params[:id])
-
-  	if request.post?
-  		@contact.update_attributes(contact_params)
-  		redirect_to action: 'edit', id: @contact.id
-  	end
+    @contact = Contact.find(params[:id])
   end
 
   def update
+  	@contact = Contact.find(params[:id])
+
+  	if @contact.update(contact_params)
+  		redirect_to @contact
+    else
+      render 'edit'
+  	end
   end
 
   def delete
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+
+    redirect_to contacts_path
   end
 
 private
