@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'contact_logs/index'
-
-  get 'contact_logs/show'
-
-  get 'contact_logs/new'
-
-  get 'contact_logs/edit'
-
-  get 'contact_logs/create'
-
-  get 'contact_logs/update'
-
-  get 'contact_logs/destroy'
-
   root 'contacts#index'
 
   resources :contacts do
