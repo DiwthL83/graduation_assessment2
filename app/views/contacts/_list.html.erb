@@ -2,20 +2,16 @@
 <table>
 	<tr>
 		<th>Full Name</th>
-		<th>Phone Number</th>
-		<th>Email Address</th>
-		<th>Tag</th>
-		<th colspan="4"></th>
+		<th>Last Contacted</th>
+		<th colspan="2"></th>
 	</tr>
 
 	<% @contacts.each do |x| %>
 		<tr>
-			<td><%= x.cont_fname %> <%= x.cont_lname %></td>
-			<td><%= x.cont_phone %></td>
-			<td><%= x.cont_email %></td>
-			<td><%= x.cont_tag %></td>
-		</tr>
-		<tr>
+			<td><a href= "contacts/<%= x.id %>"><%= x.cont_fname %> <%= x.cont_lname %></a></td>
+			<td><%= x.lastContact %></td>
+			<td></td>
+			<td></td>
 			<td><%= link_to 'Details', contact_path(x) %>  <%= link_to 'Edit', edit_contact_path(x) %>
 				<%= link_to 'Delete', contact_path(x), method: :delete, data: {confirm: "Confirm delete?"} %>
 			</td>

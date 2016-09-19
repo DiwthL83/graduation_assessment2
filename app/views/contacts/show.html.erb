@@ -1,17 +1,16 @@
 <div id="">
-<h3>
-	<%= @contact.cont_fname %> <%= @contact.cont_lname %>
-</h3>
+	<h3>
+		<%= @contact.cont_fname %> <%= @contact.cont_lname %>
+	</h3>
 
-<p>
-	Last Contact: <%= @l_contact %>
-</p>
+	<div>
+		<%= link_to 'Edit This Contact', edit_contact_path(@contact) %><br />
+		<%= link_to 'All Contacts', contacts_path %>
+	</div>
 
-</div>
-
-<div>
-	<%= link_to 'Edit', edit_contact_path(@contact) %>
-	<%= link_to 'All Contacts', contacts_path %>
+	<p>
+		<strong>Last Contacted:</strong> <%= @time_ago %>
+	</p>
 </div>
 
 <p>

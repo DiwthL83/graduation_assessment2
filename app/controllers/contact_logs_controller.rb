@@ -2,16 +2,15 @@ class ContactLogsController < ApplicationController
   protect_from_forgery
   
   def index
-    @log_entries = ContactLog.where(params[:contact_id]).order(created_at: :desc)
   end
 
   def show
-    @log_entry = ContactLog.new
-    @contact = Contact.find(params[:contact_id])
+    # @log_entry = ContactLog.new
+    # @contact = Contact.find(params[:contact_id])
   end
 
   def new
-    @log_entry = ContactLog.new
+    # @log_entry = ContactLog.new
   end
 
   def create
@@ -22,17 +21,17 @@ class ContactLogsController < ApplicationController
   end
 
   def edit
-    @log_entry = ContactLog.find(params[:id])
+    # @log_entry = ContactLog.find(params[:id])
   end
 
   def update
-    @log_entry = ContactLog.find(params[:id])
+    # @log_entry = ContactLog.find(params[:id])
 
-    if @log_entry.update(contact_log_params)
-      redirect_to
-    else
-      render 'edit'
-    end
+    # if @log_entry.update(contact_log_params)
+    #   redirect_to
+    # else
+    #   render 'edit'
+    # end
   end
 
   def destroy
