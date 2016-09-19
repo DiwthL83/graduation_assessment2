@@ -12,7 +12,7 @@
 			<td><%= x.lastContact %></td>
 			<td></td>
 			<td></td>
-			<td><%= link_to 'Details', contact_path(x) %>  <%= link_to 'Edit', edit_contact_path(x) %>
+			<td><%= link_to 'Edit', edit_contact_path(x) %>
 				<%= link_to 'Delete', contact_path(x), method: :delete, data: {confirm: "Confirm delete?"} %>
 			</td>
 		</tr>

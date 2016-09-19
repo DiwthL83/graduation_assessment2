@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'api/contacts'
+
   root 'contacts#index'
 
   resources :contacts do

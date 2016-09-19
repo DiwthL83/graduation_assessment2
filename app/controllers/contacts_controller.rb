@@ -12,20 +12,6 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    l_contact = @contact.contact_logs.max.created_at
-    tm_nbr = Time.now-l_contact
-
-    if tm_nbr > 1.year
-      @time_ago = pluralize((tm_nbr/1.year).round, "year") + " ago"
-    elsif tm_nbr > 1.month
-      @time_ago = pluralize((tm_nbr/1.month).round, "month") + " ago"
-    elsif tm_nbr > 1.week
-      @time_ago = pluralize((tm_nbr/1.week).round, "week") + " ago"
-    elsif tm_nbr > 1.day
-      @time_ago = pluralize((tm_nbr/1.day).round, "day") + " ago"
-    else
-      @time_ago = "Today"
-    end
   end
 
   def create
