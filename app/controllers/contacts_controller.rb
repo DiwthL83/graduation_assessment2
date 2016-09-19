@@ -12,12 +12,13 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @l_contact = @contact.contact_logs.max.created_at
   end
 
   def create
     @contact = Contact.new(contact_params)
 
-    if @contact.save?
+    if @contact.save
       redirect_to @contact
     else
       render 'new'

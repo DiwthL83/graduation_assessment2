@@ -4,14 +4,14 @@
 </h3>
 
 <p>
-	Last Contact: <%#= @last_contact.created_at %>
+	Last Contact: <%= @l_contact %>
 </p>
 
 </div>
 
 <div>
 	<%= link_to 'Edit', edit_contact_path(@contact) %>
-	<%= link_to 'Back', contacts_path %>
+	<%= link_to 'All Contacts', contacts_path %>
 </div>
 
 <p>
@@ -44,7 +44,7 @@
 	</table>
 </p>
 
-<h4 class="">Contact History</h4>
+<h3 class="">Contact History</h3>
 
 <table>
 	<tr>

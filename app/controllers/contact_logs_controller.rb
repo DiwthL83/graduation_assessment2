@@ -8,9 +8,6 @@ class ContactLogsController < ApplicationController
   def show
     @log_entry = ContactLog.new
     @contact = Contact.find(params[:contact_id])
-    @last_contact = @contact.contact_logs.order(created_at: :desc).first
-    # @log_entries = ContactLog.where(params[:contact_id]).order(created_at: :desc)
-    # @last_contact = ContactLog.where(params[:contact_id]).order(created_at: :desc).first
   end
 
   def new

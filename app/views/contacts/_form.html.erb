@@ -1,4 +1,3 @@
-<!-- Used to render Contacts form -->
 
 <div id ="error_explanation">
 	<h3>Add a Contact:</h3>
@@ -13,25 +12,40 @@
 		<% end %>
 
 		<p>
-		Name Info<br>
-		<%= c.label :cont_fname, 'First' %>:
-		<%= c.text_field :cont_fname %><br>
-
-		<%= c.label :cont_lname, 'Last' %>:
-		<%= c.text_field :cont_lname %><br>
+			<table>
+			<tr>
+				Name Info
+			</tr>
+			<tr>
+				<td><%= c.label :cont_fname, 'First:' %></td>
+				<td><%= c.text_field :cont_fname %></td>
+			</tr>
+			<tr>
+				<td><%= c.label :cont_lname, 'Last:' %></td>
+				<td><%= c.text_field :cont_lname %></td>
+			</tr>
+			</table>
 		</p>
 
 		<p>
-		Contact Info<br>
-		<%= c.label :cont_phone, 'Phone' %>:
-		<%= c.telephone_field :cont_phone %><br>
-
-		<%= c.label :cont_email, 'Email' %>:
-		<%= c.text_field :cont_email %><br>
-
-		<%= c.label :cont_tag, 'Tag' %>:
-		<%= c.text_field :cont_tag %><br>
-
-		<%= submit_tag "Save" %>
+			<table>
+				<tr>
+					Contact Info
+				</tr>
+				<tr>
+					<td><%= c.label :cont_phone, 'Phone:' %></td>
+					<td><%= c.telephone_field :cont_phone %></td>
+				</tr>
+				<tr>
+					<td><%= c.label :cont_email, 'Email:' %></td>
+					<td><%= c.text_field :cont_email %></td>
+				</tr>
+				<tr>
+					<td><%= c.label :cont_tag, 'Tag:' %></td>
+					<td><%= c.text_field :cont_tag %></td>
+				</tr>
+			</table>
+			<%= submit_tag "Save" %>
+		</p>
 	<% end %>
 </div>
