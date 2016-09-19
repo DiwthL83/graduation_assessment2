@@ -2,11 +2,15 @@ class ContactLogsController < ApplicationController
   protect_from_forgery
   
   def index
+    @log_entries = ContactLog.where(params[:contact_id]).order(created_at: :desc)
   end
 
   def show
     @log_entry = ContactLog.new
-    @log_entries = ContactLog.where(params[:contact_id]).order(:created_at :desc)
+    @contact = Contact.find(params[:contact_id])
+    @last_contact = @contact.contact_logs.order(created_at: :desc).first
+    # @log_entries = ContactLog.where(params[:contact_id]).order(created_at: :desc)
+    # @last_contact = ContactLog.where(params[:contact_id]).order(created_at: :desc).first
   end
 
   def new
@@ -14,13 +18,10 @@ class ContactLogsController < ApplicationController
   end
 
   def create
-    @log_entry = ContactLog.new(contact_log_params)
+    @contact = Contact.find(params[:contact_id])
+    @log_entry = @contact.contact_logs.create(contact_log_params)
 
-    if @log_entry.save?
-      redirect_to contact_contact_logs_path
-    else
-      render 'new'
-    end
+    redirect_to contact_path(@contact)
   end
 
   def edit
@@ -30,7 +31,7 @@ class ContactLogsController < ApplicationController
   def update
     @log_entry = ContactLog.find(params[:id])
 
-    if @log_entry.update?
+    if @log_entry.update(contact_log_params)
       redirect_to
     else
       render 'edit'
@@ -38,16 +39,17 @@ class ContactLogsController < ApplicationController
   end
 
   def destroy
-    @log_entry = ContactLog.find(params[:id])
+    @contact = Contact.find(params[:contact_id])
+    @log_entry = @contact.contact_logs.find(params[:id])
     @log_entry.destroy
 
-    redirect_to contact_contact_logs_path
+    redirect_to contact_path(@contact)
   end
 
 private
 
   def contact_log_params
-    params.require(:log_entry).permit(:notes)
+    params.require(:contact_log).permit(:notes)
   end
 
 end

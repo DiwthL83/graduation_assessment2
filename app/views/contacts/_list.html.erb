@@ -1,6 +1,4 @@
 <!-- Used to render list of all Contacts -->
-<h3>Contacts List</h3>
-
 <table>
 	<tr>
 		<th>Full Name</th>
@@ -16,8 +14,11 @@
 			<td><%= x.cont_phone %></td>
 			<td><%= x.cont_email %></td>
 			<td><%= x.cont_tag %></td>
-			<td><%= link_to 'Show', contact_path(x) %></td>
-			<td><%= link_to 'Edit', edit_contact_path(x) %></td>
+		</tr>
+		<tr>
+			<td><%= link_to 'Details', contact_path(x) %>  <%= link_to 'Edit', edit_contact_path(x) %>
+				<%= link_to 'Delete', contact_path(x), method: :delete, data: {confirm: "Confirm delete?"} %>
+			</td>
 		</tr>
 	<% end %>
 </table>

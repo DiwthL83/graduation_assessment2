@@ -1,20 +1,8 @@
 <!-- Used to render Contact Log Entries form -->
 
 <div id ="error_explanation">
-	<%= form_for :contact_log, controller: "contacts", action: "logCreate" do |c| %>
-		<% if @log_entry.errors.any? %>
-			<ul>
-				<%= pluralize(@log_entry.errors.count, "error") %> prevented the entry from being saved: 
-				<% @log_entry.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		<% end %>
-
-		<p>
-			<%= c.label :notes, 'Add a Note:' %>:<br>
-			<%= c.text_area :notes %><br>
-			<%= submit_tag "Save Entry" %>
-		</p>
+	<%= form_for([@contact, @contact.contact_logs.build]) do |c| %>
+		<%= c.text_area :notes %><br>
+		<%= submit_tag "Save Entry" %>
 	<% end %>
 </div>

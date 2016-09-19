@@ -1,29 +1,60 @@
+<div id="">
 <h3>
-	<%= @contact.cont_fname %> <%= @contact.cont_lname %> | Last Contact:
+	<%= @contact.cont_fname %> <%= @contact.cont_lname %>
 </h3>
 
 <p>
-	First: <%= @contact.cont_fname %><br>
-	Last: <%= @contact.cont_lname %>
+	Last Contact: <%#= @last_contact.created_at %>
+</p>
+
+</div>
+
+<div>
+	<%= link_to 'Edit', edit_contact_path(@contact) %>
+	<%= link_to 'Back', contacts_path %>
+</div>
+
+<p>
+	<table>
+		<tr>
+			<td>F. Name:</td> 
+			<td><%= @contact.cont_fname %></td>
+		</tr>
+		<tr>
+			<td>L. Name:</td>
+			<td><%= @contact.cont_lname %></td>
+		</tr>
+	</table>
 </p>
 
 <p>
-	Phone: <%= @contact.cont_phone %><br>
-	Email: <%= @contact.cont_email %><br>
-	Tag: <%= @contact.cont_tag %>
+	<table>
+		<tr>
+			<td>Phone:</td> 
+			<td><%= @contact.cont_phone %></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><%= @contact.cont_email %></td>
+		</tr>
+		<tr>
+			<td>Tag:</td>
+			<td><%= @contact.cont_tag %></td>
+		</tr>
+	</table>
 </p>
 
 <h4 class="">Contact History</h4>
 
 <table>
-	<% @log_entries.each do |x| %>
-		<tr>
-			<td><%= x.created_at %></td>
-			<td><%= x.notes %></td>
-			<td><%= link_to 'Edit', edit_contact_log_path(x) %></td>
-			<td><%= link_to 'Delete', delete_contact_log_path(x) %></td>
-		</tr>
-	<% end %>
+	<tr>
+		<td>Created</td>
+		<td>Note</td>
+	</tr>
+	
+	<%= render @contact.contact_logs %>
 </table>
 
+<h3>Add a Note:</h3>
 <%= render 'contact_logs/form' %>
+
