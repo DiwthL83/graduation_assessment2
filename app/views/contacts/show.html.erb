@@ -46,9 +46,13 @@
 <h3 class="">Contact History</h3>
 
 <table>
-	<%= render @contact.contact_logs %>
+	<% if @contact.contact_logs.length > 0 %>
+		<%= render @contact.contact_logs %>
+	<% else %>
+		<%= "No contact notes to view." %>
+	<% end %>
 </table>
 
 <h3>Add a Note:</h3>
-<%= render 'contact_logs/form' %>
+<%= render "contact_logs/form" %>
 

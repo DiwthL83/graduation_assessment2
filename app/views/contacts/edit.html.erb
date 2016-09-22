@@ -3,7 +3,7 @@
 <%= link_to 'Back', contacts_path %>
 
 <div id ="error_explanation">
-	<h3>Add a Contact:</h3>
+	<h3>Edit a Contact:</h3>
 	<%= form_for :contact, url: contact_path(@contact), method: :patch do |c| %>
 		<% if @contact.errors.any? %>
 			<ul>
@@ -15,25 +15,26 @@
 		<% end %>
 
 		<p>
-		Name Info<br>
-		<%= c.label :cont_fname, 'First' %>:
-		<%= c.text_field :cont_fname %><br>
+			Name Info<br>
+			<%= c.label :cont_fname, 'First' %>:
+			<%= c.text_field :cont_fname %><br>
 
-		<%= c.label :cont_lname, 'Last' %>:
-		<%= c.text_field :cont_lname %><br>
+			<%= c.label :cont_lname, 'Last' %>:
+			<%= c.text_field :cont_lname %><br>
 		</p>
 
 		<p>
-		Contact Info<br>
-		<%= c.label :cont_phone, 'Phone' %>:
-		<%= c.telephone_field :cont_phone %><br>
+			Contact Info<br>
+			<%= c.label :cont_phone, 'Phone' %>:
+			<%= c.telephone_field :cont_phone %><br>
 
-		<%= c.label :cont_email, 'Email' %>:
-		<%= c.text_field :cont_email %><br>
+			<%= c.label :cont_email, 'Email' %>:
+			<%= c.text_field :cont_email %><br>
 
-		<%= c.label :cont_tag, 'Tag' %>:
-		<%= c.text_field :cont_tag %><br>
+			<%= c.label :cont_tag, 'Tag' %>:
+			<%= c.text_field :cont_tag %><br>
 
-		<%= submit_tag "Update" %>
+			<%= submit_tag "Update" %>
+		</p>
 	<% end %>
 </div>

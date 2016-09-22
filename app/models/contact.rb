@@ -23,7 +23,7 @@ class Contact < ActiveRecord::Base
         "Today"
       end
     else
-      "No contact notes recorded."
+      "N/A"
     end
   end
 
