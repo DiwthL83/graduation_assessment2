@@ -9,7 +9,7 @@
 	</div>
 
 	<p>
-		<strong>Last Contacted:</strong> <%= @contact.lastContact %>
+		<strong>Last Contact:</strong> <%= @contact.lastContact %>
 	</p>
 </div>
 
@@ -46,11 +46,6 @@
 <h3 class="">Contact History</h3>
 
 <table>
-	<tr>
-		<td>Created</td>
-		<td>Note</td>
-	</tr>
-	
 	<%= render @contact.contact_logs %>
 </table>
 

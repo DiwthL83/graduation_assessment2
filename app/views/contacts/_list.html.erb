@@ -1,14 +1,21 @@
 <!-- Used to render list of all Contacts -->
+<p>
 <table>
 	<tr>
+		<th colspan="7">All Contacts</th>
+	</tr>
+	<tr>
 		<th>Full Name</th>
+		<th></th>
+		<th></th>
 		<th>Last Contacted</th>
-		<th colspan="5"></th>
 	</tr>
 
 	<% @contacts.each do |x| %>
 		<tr>
 			<td><a href= "contacts/<%= x.id %>"><%= x.cont_fname %> <%= x.cont_lname %></a></td>
+			<td></td>
+			<td></td>			
 			<td><%= x.lastContact %></td>
 			<td></td>
 			<td></td>
@@ -18,3 +25,4 @@
 		</tr>
 	<% end %>
 </table>
+</p>
