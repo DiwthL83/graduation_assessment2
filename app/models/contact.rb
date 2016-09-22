@@ -3,18 +3,20 @@ class Contact < ActiveRecord::Base
 
 	attr_reader :lastContact
 
+  include ActionView::Helpers::TextHelper
+
 	def lastContact
     if self.contact_logs.length > 0
   		tm_nbr = Time.now-self.contact_logs.max.created_at
 
       if tm_nbr > 1.year
-        helper.pluralize((tm_nbr/1.year).round, "year", plural: "years") + " ago"
+        pluralize((tm_nbr/1.year).round, "year", plural: "years") + " ago"
       elsif tm_nbr > 1.month
-        helper.pluralize((tm_nbr/1.month).round, "month") + " ago"
+        pluralize((tm_nbr/1.month).round, "month") + " ago"
       elsif tm_nbr > 1.week
-        helper.pluralize((tm_nbr/1.week).round, "week") + " ago"
+        pluralize((tm_nbr/1.week).round, "week") + " ago"
       elsif tm_nbr > 1.day
-        helper.pluralize((tm_nbr/1.day).round, "day", plural: "days") + " ago"
+        pluralize((tm_nbr/1.day).round, "day") + " ago"
       elsif Time.now.day > self.contact_logs.max.created_at.day
         "Yesterday"
       else
