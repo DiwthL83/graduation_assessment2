@@ -10,6 +10,7 @@
 		<tr>
 			<td><a href= "contacts/<%= x.id %>"><%= x.cont_fname %> <%= x.cont_lname %></a></td>
 			<td><%= x.lastContact %></td>
+			<td><%= x.contact_logs.max.created_at.day %></td>
 			<td></td>
 			<td></td>
 			<td><%= link_to 'Edit', edit_contact_path(x) %>

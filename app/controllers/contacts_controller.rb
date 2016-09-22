@@ -6,13 +6,16 @@ class ContactsController < ApplicationController
     @contacts = Contact.all.order(cont_lname: :asc)
   end
 
+
   def new
   	@contact = Contact.new
   end
 
+
   def show
     @contact = Contact.find(params[:id])
   end
+
 
   def create
     @contact = Contact.new(contact_params)
@@ -24,9 +27,11 @@ class ContactsController < ApplicationController
     end
   end
 
+
   def edit
     @contact = Contact.find(params[:id])
   end
+
 
   def update
   	@contact = Contact.find(params[:id])
@@ -37,6 +42,7 @@ class ContactsController < ApplicationController
       render 'edit'
   	end
   end
+
 
   def destroy
     @contact = Contact.find(params[:id])
